@@ -71,7 +71,7 @@ async function fetchUserWeatherInfo(coordinates) {
     //API CALL
     try {
         const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&mode=json&units=metric `
           );
         const  data = await response.json();
 
@@ -161,7 +161,7 @@ async function fetchSearchWeatherInfo(city){
     loadingScreen.classList.add("active");
     
     try{
-      let weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+      let weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&mode=json&units=metric `);
       if(!weather.ok)
       {
         throw(new error);
